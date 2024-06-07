@@ -195,6 +195,7 @@ int main() {
         system("cls");
         check_died(x, y);
     }
+    bandits_coor.clear();
     return 0;
 }
 
