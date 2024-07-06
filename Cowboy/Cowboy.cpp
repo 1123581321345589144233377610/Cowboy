@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <cstdlib>
-#include <Windows.h>
+#include <windows.h>
 #include <vector>
 #include <utility>
 
@@ -87,6 +87,7 @@ void shoting(int x, int y, char dir, std::vector<std::pair<int, int>>& bandits_c
         int s = 0;
 
         while (newX != 0 && newX != ROWS - 1 && newY != 0 && newY != COLS - 2 && s < 1) {
+            bandits_coor.resize(bandits_coor.size());
             int size = bandits_coor.size();
             std::pair<int, int> bullet_coor = std::make_pair(newX, newY);
             MAP[newX][newY] = '-';
@@ -94,10 +95,11 @@ void shoting(int x, int y, char dir, std::vector<std::pair<int, int>>& bandits_c
                 if (bullet_coor == bandits_coor[i]) {
                     remove(bandits_coor.begin(), bandits_coor.end(), bandits_coor[i]);
                     ++kills;
-                    ++s;         
+                    ++s;
                     break;                    
                 }
             }
+            Sleep(1);
             MAP[newX][newY] = ' '; 
             newX += dx;
             newY += dy;
